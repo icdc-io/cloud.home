@@ -1,0 +1,150 @@
+
+.home-content {
+  flex: 1 0 auto;
+  text-align: center;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */ 
+  font-family: Roboto;
+
+  h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    margin: 50px 0;
+  }
+
+  h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .container {
+    column-count: 2;
+    width: fit-content;
+    column-width: 685px;
+    margin: 20px auto;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+  }
+
+  .open {
+    margin-left: auto;
+  }
+
+  .item {
+    cursor: pointer;
+    width: 660px;
+    height: 165px;
+    box-shadow: -4px -4px 10px rgba(231, 224, 234, 0.25), 4px 4px 10px rgba(104, 97, 129, 0.15);
+    border-radius: 4px;
+    display: flex;
+    margin: 20px;
+    padding: 30px 25px 30px 46px;
+
+    &:hover {
+        box-shadow: -4px -4px 10px rgba(231, 224, 234, 0.25), 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+        .open {
+            color: #000000;
+            text-decoration: underline; 
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+    }
+  }
+
+  p {
+    width: 100%;
+  }
+
+  p ~ div {
+    display: flex;
+    width: 100%;
+    height: 25px;
+    margin-top: auto;
+
+    img {
+        margin-left: 10px;
+    }
+  }
+
+  .item > img {
+    margin: auto;
+  }
+
+  img ~ div {
+    text-align: left;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .route {
+    margin-right: 10px;
+  }
+
+  .iba {
+    border: 1.5px solid #989BA4;
+    border-radius: 7px;
+    font-size: 18px;
+    color: #595757;
+    width: 270px;
+    height: 55px;
+
+    img {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        color: #3D4048;
+        border: 1.5px solid #3D4048;
+    }
+  }
+
+  .no-accounts {
+    margin-top: 30vh;
+
+    .support {
+        cursor: pointer;
+    }
+  }
+
+  .item-content {
+    width: 452px;
+  }
+}
+
+.footer {
+  display: flex;
+  margin: 80px 40px 30px 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */ 
+  font-family: Roboto;
+
+  p {
+      color: #9D9D9D;
+      width: fit-content;
+      width: -moz-fit-content;
+      margin-right: 20px;
+  }
+
+  .line {
+      margin: 0 10px;
+      height: 20px;
+      width: 1px;
+      border: 1px solid #979797;
+  }
+}
