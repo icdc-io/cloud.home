@@ -145,7 +145,7 @@ module.exports = () => {
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
-      publicPath: "http://localhost:8080/",
+      publicPath: mode === 'development' ? "http://localhost:8080/" : "/",
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info =>
@@ -419,7 +419,7 @@ module.exports = () => {
         name: 'mainComponent',
         filename: 'general.js',
         remotes: {
-          microFrontEnd1: (mode === 'development' ? 'microFrontEnd1@http://localhost:8081/remoteEntry.js' : 'microFrontEnd1@http://localhost:8081/remoteEntry.js')
+          microFrontEnd1: (mode === 'development' ? 'microFrontEnd1@http://localhost:8081/remoteEntry.js' : 'microFrontEnd1@/cloud/chrome/remoteEntry.js')
         },
         shared: {
           react: {
