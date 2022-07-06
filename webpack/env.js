@@ -98,13 +98,14 @@ function getClientEnvironment(publicUrl) {
         FAST_REFRESH: process.env.FAST_REFRESH !== 'false',
       }
     );
-  // Stringify all values so we can feed into webpack DefinePlugin
-  const stringified = {
-    'process.env': Object.keys(raw).reduce((env, key) => {
-      env[key] = JSON.stringify(raw[key]);
-      return env;
-    }, {}),
-  };
+
+    // Stringify all values so we can feed into webpack DefinePlugin
+    const stringified = {
+      'process.env': Object.keys(process.env).reduce((env, key) => {
+        env[key] = JSON.stringify(process.env[key]);
+        return env;
+      }, {})
+    };
 
   return { raw, stringified };
 }
