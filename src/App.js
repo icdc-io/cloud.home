@@ -14,9 +14,7 @@ const App = () => {
 
   return (
     <React.Suspense fallback={
-      <div className='start-loader'>
-        <div active inline='centered' />
-      </div>
+      <div className='ui active centered inline loader' />
     }>
       <Chrome id='home'
         changeUser={userInfo => setUser(userInfo)}
@@ -24,7 +22,7 @@ const App = () => {
         language={language()}
         getServicesInfo={services => setServices(services)}
       >
-        <Landing t={t} user={user} services={services} />
+        { services ? <Landing t={t} user={user} services={services} /> : <div className='ui active centered inline loader' /> }
       </Chrome>
     </React.Suspense>
   )
