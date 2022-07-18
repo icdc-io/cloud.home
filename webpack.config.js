@@ -395,8 +395,7 @@ module.exports = () => {
           {},
           {
             inject: true,
-            template: paths.appHtml,
-            favicon: "./public/favicon.ico"
+            template: paths.appHtml
           },
           isEnvProduction
             ? {
