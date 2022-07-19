@@ -42,7 +42,7 @@ export const Body = ({ t, user, urls, services: servicesInfo }) => {
         }
     };
 
-    const isVisible = (service) => service === 'admin' ? token.groups.includes('cloud-admin') : servicesRoles[service] ?
+    const isVisible = (service) => service === 'admin' ? token.groups.some(group => /.cloud$/.test(group)) : servicesRoles[service] ?
         servicesRoles[service].some(role => token.external.accounts[user.account].roles.indexOf(role) !== -1) : true;
 
     const returnLanding = () => {
