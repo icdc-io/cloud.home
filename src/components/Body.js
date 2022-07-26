@@ -3,6 +3,7 @@ import services from '../consts/services';
 import { withRouter } from 'react-router-dom';
 import ibaButton from '../images/ibaButton.svg';
 import arrow from '../images/arrow.svg';
+import { useTranslation } from "react-i18next";
 
 const servicesRoles = {
     openshift: [ 'member' ],
@@ -11,7 +12,9 @@ const servicesRoles = {
 
 };
 
-export const Body = ({ t, user, urls, services: servicesInfo }) => {
+export const Body = ({ user, urls, services: servicesInfo }) => {
+    const { t, i18n } = useTranslation();
+    console.log(i18n)
     // const [ token, setToken ] = useState(0);
 
     // const changeUrl = () => {
@@ -56,7 +59,7 @@ export const Body = ({ t, user, urls, services: servicesInfo }) => {
                                 <img src={ services[service.name].img } />
                                 <div className='item-content'>
                                     <h2>{ service.displayName }</h2>
-                                    <p>{ service.description || services[service.name].description['ru'] }</p>
+                                    <p>{ service.description || services[service.name].description[i18n.language] }</p>
                                     <div>
                                         { services[service.name].routes(user.location)[user.role] &&
                                             services[service.name].routes(user.location)[user.role].map((route, key) => {
@@ -64,14 +67,14 @@ export const Body = ({ t, user, urls, services: servicesInfo }) => {
                                                     rel='noopener noreferrer'
                                                     href={ service.name.toLowerCase() === 'openshift' ? route.route : service.path + route.route }
                                                     className='route'>
-                                                    { route['ru'] }
+                                                    { route[i18n.language] }
                                                 </a> :
                                                     <a key={ key }
                                                         rel='noopener noreferrer'
                                                         className='route'
                                                         href={ service.name.toLowerCase() === 'openshift' ? route.route : service.url + route.route }
                                                         target='_blank'>
-                                                        { route['ru'] }
+                                                        { route[i18n.language] }
                                                     </a>; }) }
                                         { service.path ? <a href={ window.location.origin + service.path } className='open'>
                                             { t('open') }
