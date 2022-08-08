@@ -3,7 +3,7 @@
   flex: 1 0 auto;
   text-align: center;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */ 
-  font-family: Roboto;
+  font-family: 'Roboto';
 
   h1 {
     font-style: normal;
@@ -45,6 +45,7 @@
     display: flex;
     margin: 20px;
     padding: 30px 25px 30px 46px;
+    background-color: #fff;
 
     &:hover {
         box-shadow: -4px -4px 10px rgba(231, 224, 234, 0.25), 0px 4px 10px rgba(0, 0, 0, 0.2);
