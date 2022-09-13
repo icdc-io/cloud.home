@@ -14,7 +14,7 @@ const servicesRoles = {
 
 export const Body = ({ user, urls, services: servicesInfo }) => {
     const { t, i18n } = useTranslation();
-    console.log(i18n)
+
     // const [ token, setToken ] = useState(0);
 
     // const changeUrl = () => {
