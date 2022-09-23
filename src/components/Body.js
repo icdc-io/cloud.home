@@ -100,10 +100,10 @@ export const Body = ({ user, urls, services: servicesInfo }) => {
     return <section className='home-content'>
         <div>
             { returnLanding() }
-            <a href={ urls.backToUrl }>
+            <a href={ urls.back_to_url }>
                 <button className='iba'>
                     <img src={ ibaButton } />
-                    { `${t('goTo')} ${ urls.backToUrl.replace('https://', '').replace('http://', '') }`  }
+                    { `${t('goTo')} ${ urls.back_to_url ? urls.back_to_url.includes('http') ? urls.back_to_url.split('//')[1] || 'ibacloud.by' : urls.back_to_url : 'ibacloud.by' }`  }
                 </button>
             </a>
         </div>

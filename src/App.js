@@ -11,6 +11,7 @@ const App = () => {
   const { t, i18n } = useTranslation();
   const [user, setUser] = useState();
   const [services, setServices] = useState();
+  const [publicLocationData, setPublicLocationData] = useState(null);
 
   return (
     <React.Suspense fallback={
@@ -21,8 +22,9 @@ const App = () => {
         changeLang={lang => i18n.changeLanguage(lang)}
         language={language()}
         getServicesInfo={services => setServices(services)}
+        getPublicLocationData={publicLocationData => setPublicLocationData(publicLocationData)}
       >
-        { services ? <Landing t={t} user={user} services={services} /> : <div className='ui active centered inline loader' /> }
+        { services ? <Landing t={t} user={user} services={services} publicLocationData={publicLocationData} /> : <div className='ui active centered inline loader' /> }
       </Chrome>
     </React.Suspense>
   )
