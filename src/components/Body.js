@@ -90,10 +90,7 @@ export const Body = ({ user, urls, services: servicesInfo }) => {
                 </div>
             </> : <h1>{ t('noServices') }</h1>;
         } else {
-            return <h1 className='no-accounts'>
-                { t('noAccounts') } <font className='support' color='#1e27ff' onClick={ onClick }>
-                    { t('support') }
-                </font>.</h1>;
+            return <h1 className='no-accounts'>{ t('noAccounts') }.</h1>;
         }
     };
 
