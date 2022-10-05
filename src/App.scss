@@ -4,6 +4,7 @@
   text-align: center;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */ 
   font-family: 'Roboto';
+  min-height: calc(100vh - 272px);
 
   h1 {
     font-style: normal;
