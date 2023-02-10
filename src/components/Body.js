@@ -59,7 +59,7 @@ export const Body = ({ user, urls, services: servicesInfo }) => {
                                 <img src={ services[service.name].img } />
                                 <div className='item-content'>
                                     <h2>{ service.displayName }</h2>
-                                    <p>{ service.description || services[service.name].description[i18n.language] }</p>
+                                    <p>{ services[service.name] && services[service.name].description ? services[service.name].description[i18n.language] : service.description }</p>
                                     <div>
                                         { services[service.name].routes(user.location)[user.role] &&
                                             services[service.name].routes(user.location)[user.role].map((route, key) => {

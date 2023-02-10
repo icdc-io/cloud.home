@@ -40,7 +40,7 @@
   .item {
     cursor: pointer;
     width: 660px;
-    height: 165px;
+    min-height: 165px;
     box-shadow: -4px -4px 10px rgba(231, 224, 234, 0.25), 4px 4px 10px rgba(104, 97, 129, 0.15);
     border-radius: 4px;
     display: flex;
