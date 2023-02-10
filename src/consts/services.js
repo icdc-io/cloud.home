@@ -49,7 +49,7 @@ const services = {
     networking: {
         title: 'Networking',
         description: {
-            en: 'An isolated part of the ICDC Cloud that provides a cloud network for resource management in a protected environment.',
+            en: 'An isolated part of the Cloud that provides a cloud network for resource management in a protected environment.',
             ru: 'Виртуальный облачный сервис, который предоставляет изолированную облачную сеть для управления ресурсами в безопасной среде.'
         },
         img: Networking,
