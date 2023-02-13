@@ -5,11 +5,11 @@ const FooterTraditional = ({ t, urls }) => {
         <section>
             <div className='footer'>
                 <p>®{ new Date().getFullYear() } { urls.footerMessage }</p>
-                <a href={ urls.privacyPolicyUrl } rel='noopener noreferrer' target='_blank'>{ t('privacy') }</a>
+                <a href={ urls.privacy_policy_url } rel='noopener noreferrer' target='_blank'>{ t('privacy') }</a>
                 <div className='line' />
-                <a href={ urls.cookiesPolicyUrl } rel='noopener noreferrer' target='_blank'>{ t('cookies') }</a>
+                <a href={ urls.cookies_policy_url } rel='noopener noreferrer' target='_blank'>{ t('cookies') }</a>
                 <div className='line' />
-                <a href={ urls.statusPageUrl } rel='noopener noreferrer' target='_blank'>{ t('status') }</a>
+                <a href={ urls.status_page_url } rel='noopener noreferrer' target='_blank'>{ t('status') }</a>
             </div>
         </section>
     );
