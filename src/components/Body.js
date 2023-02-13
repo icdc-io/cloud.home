@@ -48,12 +48,14 @@ export const Body = ({ user, urls, services: servicesInfo }) => {
     const isVisible = (service) => service === 'admin' ? token.groups.some(group => /.cloud$/.test(group)) : servicesRoles[service] ?
         servicesRoles[service].some(role => token.external.accounts[user.account].roles.indexOf(role) !== -1) : true;
 
+    const numberOrLast = (position) => typeof position === 'number' ? position : 999;
+
     const returnLanding = () => {
         if (user && user.account) {
             return servicesInfo[user.location].length ? <>
                 <h1>{ t('title') }</h1>
                 <div className='container'>
-                    { servicesInfo[user.location].sort((a, b) => (a.position || 999) - (b.position || 999)).map(service => {
+                    { servicesInfo[user.location].sort((a, b) => numberOrLast(a.position) - numberOrLast(b.position)).map(service => {
                         return services[service.name] && isVisible(service.name) ?
                             <div key={ service.name } onMouseDown={ e => itemClick(e, service) } className='item'>
                                 <img src={ services[service.name].img } />
