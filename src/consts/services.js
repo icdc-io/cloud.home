@@ -11,6 +11,8 @@ import Storage from '../images/storage.svg';
 import Admin from '../images/admin.svg';
 import Manager from '../images/manager.svg';
 import Accounts from '../images/accounts.svg';
+import Billing from '../images/billing.svg';
+import Support from '../images/support.svg';
 
 const services = {
     compute: {
@@ -405,7 +407,49 @@ const services = {
                 //{ ru: 'Console', en: 'Console', route: `https://openshift.${location === 'idc' ? 'iby' : location}.icdc.io/` }
             ]
         })
-    }
+    },
+    billing: {
+        title: 'Billing',
+        description: {
+            en: 'Managed invoices, reports and payments for all accounts.',
+            ru: 'Управляемые счета-фактуры, отчеты и платежи для всех аккаунтов.'
+        },
+        img: Billing,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
+    support: {
+        title: 'Support',
+        description: {
+            en: 'Access documentation and request support with helpdesk.',
+            ru: 'Доступ к документации и запросы в службу поддержки.'
+        },
+        img: Support,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
 };
 
 export default services;
