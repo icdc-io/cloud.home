@@ -13,6 +13,10 @@ import Manager from '../images/manager.svg';
 import Accounts from '../images/accounts.svg';
 import Billing from '../images/billing.svg';
 import Support from '../images/support.svg';
+import OpenShiftDedicated from '../images/OpenShift Dedicated.svg';
+import OpenShiftContainerService from '../images/OpenShift Container Service.svg';
+import OpenShiftCloud from '../images/OpenShift cloud.svg';
+import DataBase from '../images/DataBase.svg';
 
 const services = {
     compute: {
@@ -436,6 +440,90 @@ const services = {
             ru: 'Доступ к документации и запросы в службу поддержки.'
         },
         img: Support,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
+    "openshift-cloud": {
+        title: 'OpenShift Cloud',
+        description: {
+            en: 'OpenShift Cloud',
+            ru: 'OpenShift Cloud'
+        },
+        img: OpenShiftCloud,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
+    "openshift-dedicated": {
+        title: 'OpenShift Dedicated',
+        description: {
+            en: 'OpenShift Dedicated',
+            ru: 'OpenShift Dedicated'
+        },
+        img: OpenShiftDedicated,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
+    "openshift-service": {
+        title: 'OpenShift Container Service',
+        description: {
+            en: 'OpenShift Container Service',
+            ru: 'OpenShift Container Service'
+        },
+        img: OpenShiftContainerService,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
+    database: {
+        title: 'DataBase',
+        description: {
+            en: 'DataBase',
+            ru: 'DataBase'
+        },
+        img: DataBase,
         // url: {
         //     xby: 'https://cloud.icdc.io/billing',
         //     zby: 'https://cloud.icdc.io/billing',
