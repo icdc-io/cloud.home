@@ -11,6 +11,7 @@ const servicesRoles = {
     projects: [ 'admin', 'billing', 'manager' ]
 
 };
+const adminServicesOnly = ['admin', 'billing'];
 
 export const Body = ({ user, urls, services: servicesInfo }) => {
     const { t, i18n } = useTranslation();
@@ -45,7 +46,7 @@ export const Body = ({ user, urls, services: servicesInfo }) => {
         }
     };
 
-    const isVisible = (service) => service === 'admin' ? token.groups.some(group => /.cloud$/.test(group)) : servicesRoles[service] ?
+    const isVisible = (service) => adminServicesOnly.includes(service) ? token.groups.some(group => /.cloud$/.test(group)) : servicesRoles[service] ?
         servicesRoles[service].some(role => token.external.accounts[user.account].roles.indexOf(role) !== -1) : true;
 
     const numberOrLast = (position) => typeof position === 'number' ? position : 999;
