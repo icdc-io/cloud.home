@@ -457,8 +457,8 @@ const services = {
     "openshift-cloud": {
         title: 'OpenShift Cloud',
         description: {
-            en: 'OpenShift Cloud',
-            ru: 'OpenShift Cloud'
+            en: 'Provides necessary resources for developing and deploying microservices applications.',
+            ru: 'Предоставляет необходимые ресурсы для разработки и развертывания микросервисных приложений.'
         },
         img: OpenShiftCloud,
         // url: {
