@@ -13,9 +13,9 @@ import Manager from '../images/manager.svg';
 import Accounts from '../images/accounts.svg';
 import Billing from '../images/billing.svg';
 import Support from '../images/support.svg';
-import OpenShiftDedicated from '../images/OpenShift Dedicated.svg';
-import OpenShiftContainerService from '../images/OpenShift Container Service.svg';
-import OpenShiftCloud from '../images/OpenShift cloud.svg';
+import OutrunDedicated from '../images/Outrun Dedicated.svg';
+import OutrunContainerService from '../images/Outrun Container Service.svg';
+import OutrunCloud from '../images/Outrun cloud.svg';
 import DataBase from '../images/DataBase.svg';
 
 const services = {
@@ -454,13 +454,13 @@ const services = {
             ]
         })
     },
-    "openshift-cloud": {
-        title: 'OpenShift Cloud',
+    "outrun-cloud": {
+        title: 'Outrun Cloud',
         description: {
             en: 'Provides necessary resources for developing and deploying microservices applications.',
             ru: 'Предоставляет необходимые ресурсы для разработки и развертывания микросервисных приложений.'
         },
-        img: OpenShiftCloud,
+        img: OutrunCloud,
         // url: {
         //     xby: 'https://cloud.icdc.io/billing',
         //     zby: 'https://cloud.icdc.io/billing',
@@ -475,13 +475,13 @@ const services = {
             ]
         })
     },
-    "openshift-dedicated": {
-        title: 'OpenShift Dedicated',
+    "outrun-dedicated": {
+        title: 'Outrun Dedicated',
         description: {
-            en: 'OpenShift Dedicated',
-            ru: 'OpenShift Dedicated'
+            en: 'Outrun Dedicated',
+            ru: 'Outrun Dedicated'
         },
-        img: OpenShiftDedicated,
+        img: OutrunDedicated,
         // url: {
         //     xby: 'https://cloud.icdc.io/billing',
         //     zby: 'https://cloud.icdc.io/billing',
@@ -496,13 +496,13 @@ const services = {
             ]
         })
     },
-    "openshift-service": {
-        title: 'OpenShift Container Service',
+    "outrun-service": {
+        title: 'Outrun Container Service',
         description: {
-            en: 'OpenShift Container Service',
-            ru: 'OpenShift Container Service'
+            en: 'Outrun Container Service',
+            ru: 'Outrun Container Service'
         },
-        img: OpenShiftContainerService,
+        img: OutrunContainerService,
         // url: {
         //     xby: 'https://cloud.icdc.io/billing',
         //     zby: 'https://cloud.icdc.io/billing',
