@@ -520,8 +520,8 @@ const services = {
     database: {
         title: 'Database',
         description: {
-            en: 'Service that makes it easier to set up, operate, and scale a relational database in the Cloud.',
-            ru: 'Сервис упрощающий настройку, эксплуатацию и масштабирование реляционной базы данных в облаке.'
+            en: 'A service that simplifies the setup, operation and scaling of databases in a cloud environment.',
+            ru: 'Сервис, упрощающий настройку, эксплуатацию и масштабирование баз данных в облачной среде.'
         },
         img: database,
         // url: {
