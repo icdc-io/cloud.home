@@ -16,7 +16,7 @@ import Support from '../images/support.svg';
 import OutrunDedicated from '../images/Outrun Dedicated.svg';
 import OutrunContainerService from '../images/Outrun Container Service.svg';
 import OutrunCloud from '../images/Outrun cloud.svg';
-import DataBase from '../images/DataBase.svg';
+import database from '../images/database.svg';
 
 const services = {
     compute: {
@@ -518,12 +518,12 @@ const services = {
         })
     },
     database: {
-        title: 'DataBase',
+        title: 'Database',
         description: {
-            en: 'DataBase',
-            ru: 'DataBase'
+            en: 'Service that makes it easier to set up, operate, and scale a relational database in the Cloud.',
+            ru: 'Сервис упрощающий настройку, эксплуатацию и масштабирование реляционной базы данных в облаке.'
         },
-        img: DataBase,
+        img: database,
         // url: {
         //     xby: 'https://cloud.icdc.io/billing',
         //     zby: 'https://cloud.icdc.io/billing',
