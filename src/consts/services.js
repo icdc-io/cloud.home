@@ -17,6 +17,7 @@ import OutrunDedicated from '../images/Outrun Dedicated.svg';
 import OutrunContainerService from '../images/Outrun Container Service.svg';
 import OutrunCloud from '../images/Outrun cloud.svg';
 import database from '../images/database.svg';
+import mq from '../images/mq.svg';
 
 const services = {
     compute: {
@@ -524,6 +525,27 @@ const services = {
             ru: 'Сервис, упрощающий настройку, эксплуатацию и масштабирование баз данных в облачной среде.'
         },
         img: database,
+        // url: {
+        //     xby: 'https://cloud.icdc.io/billing',
+        //     zby: 'https://cloud.icdc.io/billing',
+        //     idc: 'https://cloud.icdc.io/billing',
+        // },
+        routes: (location) => ({
+            member: [
+            ],
+            admin: [
+            ],
+            billing: [
+            ]
+        })
+    },
+    mq: {
+        title: 'Message Queue',
+        description: {
+            en: 'A service that simplifies the setup, operation and scaling of message brokers in a cloud environment.',
+            ru: 'Сервис, упрощающий настройку, эксплуатацию и масштабирование брокеров сообщений в облачной среде.'
+        },
+        img: mq,
         // url: {
         //     xby: 'https://cloud.icdc.io/billing',
         //     zby: 'https://cloud.icdc.io/billing',
