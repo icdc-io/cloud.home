@@ -11,12 +11,14 @@ const defaultLocationGeneral = {
     back_to_url: 'https://ibacloud.by'
 };
 
-const Landing = ({ t, user, services, publicLocationData }) => {
+const Landing = ({ t, user, services, publicLocationData, baseUrls }) => {
     const locationData = publicLocationData || defaultLocationGeneral;
 
     return (
         <>
-            <Body t={t} user={user} urls={ locationData } services={services} />
+            <section className='home-content'>
+                <Body t={t} user={user} urls={ locationData } services={services} baseUrls={baseUrls} />
+            </section>
             <FooterTraditional t={t} urls={ locationData }/>
         </>
     );

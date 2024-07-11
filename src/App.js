@@ -12,6 +12,7 @@ const App = () => {
   const [user, setUser] = useState();
   const [services, setServices] = useState();
   const [publicLocationData, setPublicLocationData] = useState(null);
+  const [baseUrls, setBaseUrls] = useState();
 
   return (
     <React.Suspense fallback={
@@ -23,8 +24,9 @@ const App = () => {
         language={language()}
         getServicesInfo={services => setServices(services)}
         getPublicLocationData={publicLocationData => setPublicLocationData(publicLocationData)}
+        setBaseUrls={baseUrls => setBaseUrls(baseUrls)}
       >
-        { services ? <Landing t={t} user={user} services={services} publicLocationData={publicLocationData} /> : <div className='ui active centered inline loader' /> }
+        { services ? <Landing t={t} user={user} services={services} publicLocationData={publicLocationData} baseUrls={baseUrls} /> : <div className='ui active centered inline loader' /> }
       </Chrome>
     </React.Suspense>
   )
