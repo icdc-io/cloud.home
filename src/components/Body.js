@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import services from '../consts/services';
 import { withRouter } from 'react-router-dom';
 import ibaButton from '../images/ibaButton.svg';
 import arrow from '../images/arrow.svg';
 import { useTranslation } from "react-i18next";
-import { getServicesStatuses } from '../AppActions';
 
 const servicesRoles = {
     openshift: [ 'member' ],
@@ -15,34 +14,9 @@ const servicesRoles = {
 
 const adminServicesOnly = ['admin', 'billing'];
 
-const statusServicesExceptions = ['account', 'disk', 'code'].reduce((acc, serviceName) => {
-    acc[serviceName] = true;
-    return acc;
-}, {});
-
-const handleStatuses = (servicesStatusesInfo) => {
-    return servicesStatusesInfo.reduce((acc, currentService) => {
-        acc[currentService.common_name] = currentService.common_service_status === 'Complete';
-        return acc;
-    }, statusServicesExceptions);
-};
-
-export const Body = ({ user, urls, services: servicesInfo, baseUrls }) => {
+export const Body = ({ user, urls, services: servicesInfo }) => {
+    console.log(servicesInfo)
     const { t, i18n } = useTranslation();
-    const currentBaseApiUrl = baseUrls[user.location];
-    const [isStatusesLoading, setIsStatusesLoading] = useState(true);
-    const [availableServices, setAvailableServices] = useState(handleStatuses([]));
-
-    useEffect(() => {
-        if (!currentBaseApiUrl) return;
-
-        getServicesStatuses(currentBaseApiUrl, window.insights.getToken())
-            .then((servicesStatusesInfo) => setAvailableServices(handleStatuses(servicesStatusesInfo.data)))
-            .catch((e) => console.log(e))
-            .finally(() => setIsStatusesLoading(false));
-    }, [currentBaseApiUrl]);
-
-    if (isStatusesLoading) return <div className="custom-loader" />;
 
     const token = window.insights.getUserInfo();
 
@@ -61,9 +35,9 @@ export const Body = ({ user, urls, services: servicesInfo, baseUrls }) => {
     const numberOrLast = (position) => typeof position === 'number' ? position : 999;
 
     const returnLanding = () => {
-        if (!user?.account) return <h1 className='no-accounts'>{ t('noAccounts') }.</h1>;
+        if (!user?.account || !servicesInfo[user.location]) return <h1 className='no-accounts'>{ t('noAccounts') }.</h1>;
 
-        const filteredServices = servicesInfo[user.location].filter(serviceInfo => availableServices[serviceInfo.name]);
+        const filteredServices = servicesInfo[user.location];
 
         if (filteredServices.length === 0) return <h1>{ t('noServices') }</h1>;
 
