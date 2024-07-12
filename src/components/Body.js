@@ -15,7 +15,6 @@ const servicesRoles = {
 const adminServicesOnly = ['admin', 'billing'];
 
 export const Body = ({ user, urls, services: servicesInfo }) => {
-    console.log(servicesInfo)
     const { t, i18n } = useTranslation();
 
     const token = window.insights.getUserInfo();
