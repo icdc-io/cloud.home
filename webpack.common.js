@@ -1,7 +1,5 @@
 const path = require("path");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-// const { ContextReplacementPlugin } = require('webpack');
 const { ModuleFederationPlugin } = require("webpack").container;
 const { dependencies } = require("./package.json");
 const isEnvProduction = process.env.NODE_ENV === "production";
@@ -20,12 +18,6 @@ module.exports = {
       : "static/js/[name].chunk.js",
     assetModuleFilename: "static/media/[name].[hash][ext]",
   },
-  // output: {
-  //   filename: "[name].[contenthash]-init.js",
-  //   chunkFilename: "[name].[contenthash]-async.js",
-  //   publicPath: isEnvProduction ? "/" : "/",
-  //   path: path.resolve(__dirname, "build"),
-  // },
   module: {
     rules: [
       {
@@ -62,16 +54,29 @@ module.exports = {
       },
       shared: {
         react: {
-          singleton: true,
-          requiredVersion: dependencies.react,
+          singleton: true, // true - load this module once
+          strictVersion: true, // only necessary version
+          requiredVersion: dependencies.react, // define required module version
         },
         "react-router-dom": {
           singleton: true,
+          strictVersion: true,
           requiredVersion: dependencies["react-router-dom"],
         },
         "react-i18next": {
           singleton: true,
+          strictVersion: true,
           requiredVersion: dependencies["react-i18next"],
+        },
+        "semantic-ui-react": {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: dependencies["seamless-ui-react"],
+        },
+        "react-redux": {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: dependencies["react-redux"],
         },
       },
     }),
