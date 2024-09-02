@@ -1,23 +1,23 @@
+import OutrunContainerService from "../images/Outrun Container Service.svg";
+import OutrunDedicated from "../images/Outrun Dedicated.svg";
+import OutrunCloud from "../images/Outrun cloud.svg";
+import Accounts from "../images/accounts.svg";
+import Admin from "../images/admin.svg";
 import Artifactory from "../images/artifactory.svg";
+import Billing from "../images/billing.svg";
 import Code from "../images/code.svg";
-import Compute from "../images/compute.svg";
 import Compliance from "../images/compliance.svg";
+import Compute from "../images/compute.svg";
+import database from "../images/database.svg";
 import Devops from "../images/devops.svg";
 import Disk from "../images/disk.svg";
+import Manager from "../images/manager.svg";
 import Migrator from "../images/migrator.svg";
+import mq from "../images/mq.svg";
 import Networking from "../images/networking.svg";
 import Openshift from "../images/openshift.svg";
 import Storage from "../images/storage.svg";
-import Admin from "../images/admin.svg";
-import Manager from "../images/manager.svg";
-import Accounts from "../images/accounts.svg";
-import Billing from "../images/billing.svg";
 import Support from "../images/support.svg";
-import OutrunDedicated from "../images/Outrun Dedicated.svg";
-import OutrunContainerService from "../images/Outrun Container Service.svg";
-import OutrunCloud from "../images/Outrun cloud.svg";
-import database from "../images/database.svg";
-import mq from "../images/mq.svg";
 
 const services = {
   compute: {

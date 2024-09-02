@@ -1,11 +1,11 @@
+import { isServiceAvailable } from "container/isServiceAvailable";
 import React from "react";
-import services from "../consts/services";
-import ibaButton from "../images/ibaButton.svg";
-import arrow from "../images/arrow.svg";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { isServiceAvailable } from "container/isServiceAvailable";
 import { useNavigate } from "react-router-dom";
+import services from "../consts/services";
+import arrow from "../images/arrow.svg";
+import ibaButton from "../images/ibaButton.svg";
 
 export const Body = () => {
   const { t, i18n } = useTranslation();
@@ -56,17 +56,18 @@ export const Body = () => {
 
               return services[service] ? (
                 <button
+                  type="button"
                   key={service}
                   onClick={itemClick(currentServiceInfo)}
                   className="item"
                 >
                   <div className="img-container">
-                    <img src={services[service].img} />
+                    <img src={services[service].img} alt="Service icon" />
                   </div>
                   <div className="item-content">
                     <h2>{currentServiceInfo.displayName}</h2>
                     <p>
-                      {services[service] && services[service].description
+                      {services[service]?.description
                         ? services[service].description[i18n.language]
                         : currentServiceInfo.description}
                     </p>
@@ -124,7 +125,7 @@ export const Body = () => {
                           {t("open")}
                         </a>
                       )}
-                      <img src={arrow} />
+                      <img src={arrow} alt="Arrow icon" />
                     </div>
                   </div>
                 </button>
@@ -139,8 +140,8 @@ export const Body = () => {
     <div>
       {returnLanding()}
       <a href={locationData.back_to_url}>
-        <button className="iba">
-          <img src={ibaButton} />
+        <button className="iba" type="button">
+          <img src={ibaButton} alt="External link icon" />
           {`${t("goTo")} ${locationData.back_to_url ? (locationData.back_to_url.includes("http") ? locationData.back_to_url.split("//")[1] || "ibacloud.by" : locationData.back_to_url) : "ibacloud.by"}`}
         </button>
       </a>
