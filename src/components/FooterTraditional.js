@@ -8,7 +8,7 @@ const FooterTraditional = () => {
 
   return (
     <section>
-      <div className="footer">
+      <div className="home-footer">
         <p>
           ®{new Date().getFullYear()} {locationData.footer_message}
         </p>

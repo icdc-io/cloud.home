@@ -13,7 +13,7 @@ const Home = () => {
   return isLoaded ? (
     <Landing />
   ) : (
-    <div className="ui active centered inline loader" />
+    <div className="ui active centered inline custom-home-loader" />
   );
 };
 

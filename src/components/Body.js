@@ -19,7 +19,6 @@ export const Body = () => {
 
   const itemClick = (service) => (e) => {
     e.persist();
-    console.log(service);
     if (service.path) {
       navigate(service.path);
     } else {
@@ -41,7 +40,7 @@ export const Body = () => {
     return (
       <>
         <h1>{t("title")}</h1>
-        <div className="container">
+        <div className="home-container">
           {filteredServices
             .filter((serivceName) =>
               isServiceAvailable(serivceName, user.account, userInfo),

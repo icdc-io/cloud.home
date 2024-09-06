@@ -21,7 +21,7 @@
     margin-bottom: 14px;
   }
 
-  .container {
+  .home-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, min(100%, 660px));
     justify-content: center;
@@ -142,7 +142,7 @@
   }
 }
 
-.footer {
+.home-footer {
   display: flex;
   margin: 80px 40px 30px 0;
   flex-wrap: wrap;
@@ -165,7 +165,7 @@
   }
 }
 
-.custom-loader {
+.custom-home-loader {
   z-index: 1;
   position: relative;
   display: block;
@@ -173,7 +173,7 @@
   padding: 24px;
 }
 
-.custom-loader::after {
+.custom-home-loader::after {
   height: 32px;
   width: 32px;
   position: absolute;
@@ -191,7 +191,7 @@
   box-shadow: 0 0 0 1px transparent;
 }
 
-.custom-loader::before {
+.custom-home-loader::before {
   height: 32px;
   width: 32px;
   position: absolute;
