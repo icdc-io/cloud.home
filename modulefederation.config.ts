@@ -1,6 +1,4 @@
-const { dependencies } = require("./package.json");
-
-const isEnvProduction = process.env.NODE_ENV === "production";
+import { dependencies } from "./package.json";
 
 module.exports = {
 	name: "home",
@@ -9,9 +7,7 @@ module.exports = {
 		"./home": "./src/home",
 	},
 	remotes: {
-		container: isEnvProduction
-			? `host@${process.env.REACT_APP_GENERAL_HOST}/general.js`
-			: "host@http://localhost:8000/general.js",
+		container: "host@/general.js",
 	},
 	shared: {
 		react: {
