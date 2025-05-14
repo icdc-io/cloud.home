@@ -1,8 +1,6 @@
 import type { components } from "@/schemas/account-api";
 import type { Langs } from "container/Langs";
 import { useAppSelector } from "container/ReduxActions";
-// import type { Service } from "container/compiled-types/src/types/entities";
-import { isServiceAvailable } from "container/isServiceAvailable";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import services from "../consts/services";
@@ -13,13 +11,8 @@ export const Body = () => {
 	const { t, i18n } = useTranslation();
 	const navigate = useNavigate();
 	const user = useAppSelector((state) => state.host.user);
-	const userInfo = useAppSelector((state) => state.host.userInfo);
-	const fullAccountsInfo = useAppSelector(
-		(state) => state.host.fullAccountsInfo,
-	);
+	const remotes = useAppSelector((state) => state.host.remotes);
 	const locationData = useAppSelector((state) => state.host.locationData);
-	const servicesInfo =
-		fullAccountsInfo?.[user.account]?.servicesInLocations?.[user.location];
 
 	const itemClick =
 		(service: components["schemas"]["Service"]) =>
@@ -36,58 +29,49 @@ export const Body = () => {
 		typeof position === "number" ? position : 999;
 
 	const returnLanding = () => {
-		if (!user?.account || !servicesInfo)
+		if (!user?.account || !remotes)
 			return <h1 className="no-accounts">{t("noAccounts")}.</h1>;
 
-		const filteredServices = Object.keys(servicesInfo);
-
-		if (filteredServices.length === 0) return <h1>{t("noServices")}</h1>;
+		if (remotes.length === 0) return <h1>{t("noServices")}</h1>;
 
 		return (
 			<>
 				<h1>{t("title")}</h1>
 				<div className="home-container">
-					{filteredServices
-						.filter((serviceName) => isServiceAvailable(serviceName, userInfo))
-						.sort(
-							(a, b) =>
-								numberOrLast(servicesInfo[a].position) -
-								numberOrLast(servicesInfo[b].position),
-						)
+					{[...remotes]
+						.filter((service) => services[service.name])
+						.sort((a, b) => numberOrLast(a.position) - numberOrLast(b.position))
 						.map((service) => {
-							const currentServiceInfo = servicesInfo[service];
-
-							return services[service] ? (
+							const staticServiceInfo = services[service.name];
+							return (
 								<button
 									type="button"
 									key={service}
-									onClick={itemClick(currentServiceInfo)}
+									onClick={itemClick(service)}
 									className="item"
 								>
 									<div className="img-container">
-										<img src={services[service].img} alt="Service icon" />
+										<img src={staticServiceInfo.img} alt="Service icon" />
 									</div>
 									<div className="item-content">
-										<h2>{currentServiceInfo.displayName}</h2>
+										<h2>{service.display_name}</h2>
 										<p>
-											{services[service]?.description
-												? services[service].description[i18n.language as Langs]
-												: currentServiceInfo.description}
+											{staticServiceInfo.description[i18n.language as Langs]}
 										</p>
 										<div>
-											{services[service].routes(user.location)[user.role] &&
-												services[service]
+											{staticServiceInfo.routes(user.location)[user.role] &&
+												staticServiceInfo
 													.routes(user.location)
 													[user.role].map((route, key) => {
-														return currentServiceInfo.path ? (
+														return service.path ? (
 															<a
 																key={key}
 																rel="noopener noreferrer"
 																href={
-																	currentServiceInfo.name?.toLowerCase() ===
-																	"openshift"
-																		? route.route
-																		: currentServiceInfo.path + route.route
+																	// service.name?.toLowerCase() === "openshift"
+																	// 	? route.route
+																	// 	:
+																	service.path + route.route
 																}
 																className="route"
 															>
@@ -99,9 +83,10 @@ export const Body = () => {
 																rel="noopener noreferrer"
 																className="route"
 																href={
-																	service.toLowerCase() === "openshift"
-																		? route.route
-																		: currentServiceInfo.url + route.route
+																	// service.toLowerCase() === "openshift"
+																	// 	? route.route
+																	// 	:
+																	service.url + route.route
 																}
 																target="_blank"
 															>
@@ -109,11 +94,9 @@ export const Body = () => {
 															</a>
 														);
 													})}
-											{currentServiceInfo.path ? (
+											{service.path ? (
 												<a
-													href={
-														window.location.origin + currentServiceInfo.path
-													}
+													href={window.location.origin + service.path}
 													className="open"
 												>
 													{t("open")}
@@ -121,7 +104,7 @@ export const Body = () => {
 											) : (
 												<a
 													className="open"
-													href={currentServiceInfo.url}
+													href={service.url}
 													rel="noopener noreferrer"
 													target="_blank"
 												>
@@ -132,7 +115,7 @@ export const Body = () => {
 										</div>
 									</div>
 								</button>
-							) : null;
+							);
 						})}
 				</div>
 			</>
