@@ -1,4 +1,3 @@
-import type { components } from "@/schemas/account-api";
 import type { Langs } from "container/Langs";
 import { useAppSelector } from "container/ReduxActions";
 import { useTranslation } from "react-i18next";
@@ -6,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import services from "../consts/services";
 import arrow from "../images/arrow.svg";
 import ibaButton from "../images/ibaButton.svg";
+import type { components } from "../schemas/account-api";
 
 export const Body = () => {
 	const { t, i18n } = useTranslation();
@@ -46,7 +46,7 @@ export const Body = () => {
 							return (
 								<button
 									type="button"
-									key={service}
+									key={service.name}
 									onClick={itemClick(service)}
 									className="item"
 								>
