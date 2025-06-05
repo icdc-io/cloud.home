@@ -18,6 +18,7 @@ import Networking from "../images/networking.svg";
 import Openshift from "../images/openshift.svg";
 import Storage from "../images/storage.svg";
 import Support from "../images/support.svg";
+import telemetry from "../images/telemetry.svg";
 
 type Route = {
 	ru: string;
@@ -573,6 +574,24 @@ const services: Services = {
 			ru: "Сервис, упрощающий настройку, эксплуатацию и масштабирование брокеров сообщений в облачной среде.",
 		},
 		img: mq,
+		// url: {
+		//     xby: 'https://cloud.icdc.io/billing',
+		//     zby: 'https://cloud.icdc.io/billing',
+		//     idc: 'https://cloud.icdc.io/billing',
+		// },
+		routes: () => ({
+			member: [],
+			admin: [],
+			billing: [],
+		}),
+	},
+	telemetry: {
+		title: "Telemetry",
+		description: {
+			en: "Track user and administrator actions across your infrastructure with notifications and alert settings for events and status changes.",
+			ru: "Отслеживайте действия пользователей и администраторов в вашей инфраструктуре с уведомлениями и настройками оповещений для событий и изменений статуса.",
+		},
+		img: telemetry,
 		// url: {
 		//     xby: 'https://cloud.icdc.io/billing',
 		//     zby: 'https://cloud.icdc.io/billing',
