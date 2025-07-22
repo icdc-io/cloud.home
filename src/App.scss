@@ -127,11 +127,12 @@
     border-radius: 7px;
     font-size: 18px;
     color: #595757;
-    width: 270px;
     height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
+		line-height: 1.2;
+		padding: 8px;
 
     img {
       margin-right: 5px;

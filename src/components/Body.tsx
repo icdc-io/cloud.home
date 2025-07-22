@@ -36,7 +36,7 @@ export const Body = () => {
 
 		return (
 			<>
-				<h1>{t("title")}</h1>
+				<h1>{t("home_title")}</h1>
 				<div className="home-container">
 					{[...remotes]
 						.filter((service) => services[service.name])
