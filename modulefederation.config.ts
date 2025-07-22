@@ -1,13 +1,16 @@
 import { dependencies } from "./package.json";
 
-module.exports = {
+export const mfConfig = (envMode) => ({
 	name: "home",
 	filename: "remoteEntry.js",
 	exposes: {
 		"./home": "./src/home",
 	},
 	remotes: {
-		container: "host@/general.js",
+		container:
+			envMode === "development"
+				? "host@http://localhost:8000/general.js"
+				: "host@/general.js",
 	},
 	shared: {
 		react: {
@@ -26,4 +29,4 @@ module.exports = {
 			requiredVersion: dependencies["react-i18next"],
 		},
 	},
-};
+});
