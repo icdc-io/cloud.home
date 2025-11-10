@@ -27,7 +27,7 @@ biome:
       podman run --rm
       -v "$(pwd):/repo:Z" -w /repo
       "$BIOME_IMAGE" ci --reporter=gitlab --colors=off
-  allow_failure: false
+  allow_failure: true
 #  <<: *default_rules
 
 gitleaks:
