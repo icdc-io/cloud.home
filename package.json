@@ -17,7 +17,7 @@
 		"create-account-api-schema": "npx openapi-typescript https://code.icz.icdc.io/api/v4/projects/2155/repository/files/doc%2Fopenapi.yml/raw?ref=dev -o src/schemas/account-api.ts"
 	},
 	"keywords": [],
-	"license": "ISC",
+	"license": "MIT",
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
 		"@module-federation/enhanced": "^0.6.0",
